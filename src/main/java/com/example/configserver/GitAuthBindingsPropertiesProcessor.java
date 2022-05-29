@@ -40,10 +40,11 @@ public class GitAuthBindingsPropertiesProcessor implements BindingsPropertiesPro
         properties.put("spring.cloud.config.server.git.username", secret.get("username"));
         properties.put("spring.cloud.config.server.git.password", secret.get("password"));
         properties.put("spring.cloud.config.server.git.skipSslValidation", secret.get("skipSslValidation"));
-        properties.put("spring.cloud.config.server.git.searchPaths", "{application}/{profile}");
-        
-        log.info("Mapped spring.cloud.config.server.git.uri to {}", properties.get("spring.cloud.config.server.git.uri"));
-        log.info("Added new search Path {}", properties.get("spring.cloud.config.server.git.searchPaths"));
+        properties.put("spring.cloud.config.server.git.repos.development.pattern", "*/development");
+        properties.put("spring.cloud.config.server.git.repos.development.uri", "https://github.com/gowthamshankar99/spring-config-dev.git");
+        properties.put("spring.cloud.config.server.git.repos.staging.pattern", "*/staging");
+        properties.put("spring.cloud.config.server.git.repos.staging.uri", "https://github.com/gowthamshankar99/spring-config-prod.git");
+        log.info("Mappedd spring.cloud.config.server.git.uri to {}", properties.get("spring.cloud.config.server.git.uri"));
     }
 
 }
